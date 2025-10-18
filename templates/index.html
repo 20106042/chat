@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f1f1;
+            padding: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        .chat-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+            box-shadow: 0 0 5px #ccc;
+        }
+        .user {
+            color: blue;
+        }
+        .bot {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2>Simple Chatbot</h2>
+
+    <form method="POST">
+        <input type="text" name="user_input" placeholder="Type your message..." required>
+        <button type="submit">Send</button>
+    </form>
+
+    <div class="chat-box">
+        {% for sender, message in chat %}
+            <p class="{{ sender|lower }}"><b>{{ sender }}:</b> {{ message }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
